@@ -1,0 +1,524 @@
+[
+    {
+        "id": "c1d5607d65af788b",
+        "type": "tab",
+        "label": "CO2_con_bot",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "63375dc493f8c3c5",
+        "type": "mqtt in",
+        "z": "c1d5607d65af788b",
+        "name": "",
+        "topic": "/CC50E3A8FA48/jsData",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bf286334b7c2c7d9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 220,
+        "wires": [
+            [
+                "94d2f3615ab88529",
+                "75246a7e87d523b8",
+                "68931f2f6787cd6d",
+                "1080fd621ec7eaad"
+            ]
+        ]
+    },
+    {
+        "id": "94d2f3615ab88529",
+        "type": "debug",
+        "z": "c1d5607d65af788b",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e2381d1f76fcdfd8",
+        "type": "inject",
+        "z": "c1d5607d65af788b",
+        "name": "Ventilador ON",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "912e1f6631816558",
+        "type": "inject",
+        "z": "c1d5607d65af788b",
+        "name": "Ventilador OFF",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0",
+        "payloadType": "str",
+        "x": 180,
+        "y": 420,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "49a2bb553cf1d49b",
+        "type": "mqtt out",
+        "z": "c1d5607d65af788b",
+        "name": "",
+        "topic": "/70B8F662BC7C/dout/ventilador",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "bf286334b7c2c7d9",
+        "x": 950,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "60da16e7c0c34ae5",
+        "type": "mqtt in",
+        "z": "c1d5607d65af788b",
+        "name": "",
+        "topic": "/70B8F662BC7C/#",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "bf286334b7c2c7d9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 370,
+        "y": 560,
+        "wires": [
+            [
+                "3f6a7264ec33e921"
+            ]
+        ]
+    },
+    {
+        "id": "3f6a7264ec33e921",
+        "type": "debug",
+        "z": "c1d5607d65af788b",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "a17d997b17adea93",
+        "type": "ui_button",
+        "z": "c1d5607d65af788b",
+        "name": "",
+        "group": "8df87a6598172a4f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "ON",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "d184c2c6d65bd7d0",
+        "type": "ui_button",
+        "z": "c1d5607d65af788b",
+        "name": "",
+        "group": "8df87a6598172a4f",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "OFF",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 480,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "75246a7e87d523b8",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "CO2",
+        "func": "var co2 = msg.payload.CO2_ppm;\n\nmsg.payload = co2;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "0153d6770c136760"
+            ]
+        ]
+    },
+    {
+        "id": "0153d6770c136760",
+        "type": "debug",
+        "z": "c1d5607d65af788b",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "68931f2f6787cd6d",
+        "type": "switch",
+        "z": "c1d5607d65af788b",
+        "name": "CO2 > 800",
+        "property": "payload.CO2_ppm",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "800",
+                "vt": "num"
+            },
+            {
+                "t": "lte",
+                "v": "800",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 300,
+        "wires": [
+            [
+                "f32753d86bc47094"
+            ],
+            [
+                "403052e539d04b98"
+            ]
+        ]
+    },
+    {
+        "id": "f32753d86bc47094",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "1",
+        "func": "msg.payload = 1\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 280,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "403052e539d04b98",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "0",
+        "func": "msg.payload = 0\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "49a2bb553cf1d49b"
+            ]
+        ]
+    },
+    {
+        "id": "8e43476e534873d9",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "mensaje",
+        "func": "var co2 = msg.payload.CO2_ppm;\nmsg.payload = {\n    \"content\": \"CO2: \" + co2,\n    \"chatId\":\n        8147990265,\n    \"type\": \"message\"\n}\nreturn msg\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 120,
+        "wires": [
+            [
+                "8436bf07c814840a"
+            ]
+        ]
+    },
+    {
+        "id": "8436bf07c814840a",
+        "type": "delay",
+        "z": "c1d5607d65af788b",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "50",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 120,
+        "wires": [
+            [
+                "c967ae08d4041439"
+            ]
+        ]
+    },
+    {
+        "id": "c967ae08d4041439",
+        "type": "telegram sender",
+        "z": "c1d5607d65af788b",
+        "name": "envia_bot",
+        "bot": "7574b88f2f2a21e3",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 940,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0c450f9223a80358",
+        "type": "telegram receiver",
+        "z": "c1d5607d65af788b",
+        "name": "orden",
+        "bot": "7574b88f2f2a21e3",
+        "saveDataDir": "",
+        "filterCommands": false,
+        "x": 150,
+        "y": 60,
+        "wires": [
+            [
+                "2128446f460d8986"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "2128446f460d8986",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "gestiona comandos",
+        "func": "let texto = msg.payload.content;\n\nif (texto === \"/dades\") {\n    global.set(\"enviar_dades\", true);\n    node.warn(\"Activado envío de datos\");\n} else if (texto === \"/stop\") {\n    global.set(\"enviar_dades\", false);\n    node.warn(\"Desactivado envío de datos\");\n}\n\n// No pasa el mensaje al flujo principal\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "75246a7e87d523b8"
+            ]
+        ]
+    },
+    {
+        "id": "1080fd621ec7eaad",
+        "type": "function",
+        "z": "c1d5607d65af788b",
+        "name": "control",
+        "func": "if (global.get(\"enviar_dades\") === true) {\n    return msg;\n}\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 120,
+        "wires": [
+            [
+                "8e43476e534873d9"
+            ]
+        ]
+    },
+    {
+        "id": "bf286334b7c2c7d9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.emqx.io",
+        "port": "8883",
+        "tls": "",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "8df87a6598172a4f",
+        "type": "ui_group",
+        "name": "Ventilador",
+        "tab": "85273bdf3264f513",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "7574b88f2f2a21e3",
+        "type": "telegram bot",
+        "botname": "luminaaria_bot",
+        "usernames": "",
+        "chatids": "",
+        "baseapiurl": "",
+        "testenvironment": false,
+        "updatemode": "polling",
+        "pollinterval": 300,
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": 6667,
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbothost": "0.0.0.0",
+        "localbotport": 8443,
+        "publicbotport": 8443,
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "85273bdf3264f513",
+        "type": "ui_tab",
+        "name": "Repte",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
